@@ -58,4 +58,4 @@ for i in range(0, len(predictions)):
 results = pd.DataFrame({'ID': spreadsheet[:, 0], 'Pred': spreadsheet[:, 1]})
 
 # save new submissions spreadsheet as csv to disk
-results.to_csv('SampleSubmissionStage2.csv', sep = ',', encoding = 'utf-8')
+results.to_csv('submissions.csv', sep = ',', encoding = 'utf-8')
