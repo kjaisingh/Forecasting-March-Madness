@@ -44,21 +44,24 @@ kaggle competitions submit -c mens-machine-learning-competition-2019 -f submissi
 
 ### File Details
 Other files included or created in this repository include:
-* *SampleSubmissionStage2.csv*: Holds details regarding which matchups should be predicted.
-* *submission.csv*: Holds the submissions for the Kaggle competition, as stores the matchup predictions.
-* *bracket.png*: Holds a visual representation of the predictions made in the form of a bracket for the 2019 tournament.
-* *scaler.save*: Holds the scaler that is used to preprocess data before it is used for predictions.
-* *predictor.pkl*: Holds the most accurate classifier created during the training phase.
 * *data/RegularSeasonDetailedResults.csv*: Holds data from NCAA Regular Season matchups since 1985.
 * *data/NCAATourneyDetailedResults.csv*: Holds data from NCAA March Madness matchups since 2003.
 * *data/TeamConferences.csv*: Holds data regarding the team ID's of each team part of the dataset for each year.
-* *data/teamData.csv*: Holds per-season data for each NCAA team since 2003.
+* *data/all_teamData.csv*: Holds per-season data for each NCAA team since 2003.
 * *data/2019_teamData.csv*: Holds regular season data for 2019 NCAA teams.
-* *data/training_dataset.csv*: Holds data for all NCAA matchups since 2003 in a format suitable for use as training data.
-* *data/2019_dataset.csv*: Holds data for matchups identified in a format suitable for making predictions with.
+* *data/all_dataset.csv*: Holds data for all NCAA matchups since 2003 in a format suitable for use as training data.
+* *scaler.save*: Holds the scaler that is used to preprocess data before it is used for predictions.
+* *predictor.pkl*: Holds the most accurate classifier created during the training phase.
+* *data/stage1_dataset.csv*: Holds data for matchups identified in Stage 1 in a format suitable for making predictions with.
+* *data/stage2_dataset.csv*: Holds data for matchups identified in Stage 2 in a format suitable for making predictions with.
+* *SampleSubmissionStage1.csv*: Holds details regarding which matchups should be predicted for Stage 1.
+* *SampleSubmissionStage2.csv*: Holds details regarding which matchups should be predicted for Stage 2.
+* *SubmissionStage1.csv*: Holds the submissions for Stage 1 of the Kaggle competition, as it stores the matchup predictions.
+* *SubmissionStage2.csv*: Holds the submissions for Stage 2 of the Kaggle competition, as it stores the matchup predictions.
 * *data/Teams.csv*: Holds data regarding the team name of each team based on their team ID. 
 * *data/NCAATourneySeeds.csv*: Holds data regarding the NCAA seed of each team.
 * *data/NCAATourneySlots.csv*: Holds data regarding the NCAA slot of each team.
+* *bracket.png*: Holds a visual representation of the predictions made in the form of a bracket for the 2019 tournament.
 
 
 ### Predictor Details
