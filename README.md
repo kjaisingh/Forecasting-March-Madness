@@ -31,6 +31,11 @@ python createPredictionsDataset.py
 python createPredictions.py
 ~~~~~~~~ 
 
+6. Submit the predictions to the Kaggle competition.
+~~~~
+kaggle competitions submit -c mens-machine-learning-competition-2019 -f submission.csv -m "My submission."
+~~~~~~~~ 
+
 
 ### File Details
 Other files included or created in this repository include:
