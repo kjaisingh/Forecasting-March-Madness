@@ -18,7 +18,7 @@ import random
 # DATA PREPROCESSING
 # -------------------------
 # load required files and allocate data 
-teamdetails = pd.read_csv('data/teamData.csv', header=None)
+teamdetails = pd.read_csv('data/all_teamData.csv', header=None)
 rawTeamData = teamdetails.iloc[:, :].values
 
 regseason = pd.read_csv('data/RegularSeasonDetailedResults.csv')
@@ -116,4 +116,7 @@ for i in range(0, games.shape[0]):
 # -------------------------
 # DATA STORAGE
 # ------------------------- 
-np.savetxt("data/training_dataset.csv", dataset, delimiter = ",")
+np.savetxt("data/all_dataset.csv", dataset, delimiter = ",")
+print("Training Dataset creation complete.")
+print()
+print()

@@ -28,7 +28,7 @@ sc = pickle.load(open(scalerfile, 'rb'))
 # DATA PREPROCESSING
 # -------------------------
 # load required files and allocate data 
-data = pd.read_csv('data/2019_dataset.csv', header=None)
+data = pd.read_csv('data/stage2_dataset.csv', header=None)
 X = data.iloc[:, 4:].values
 
 # apply scalar to data
@@ -58,4 +58,8 @@ for i in range(0, len(predictions)):
 results = pd.DataFrame(data = spreadsheet, columns=["ID", "Pred"])
 
 # save new submissions spreadsheet as csv to disk
-results.to_csv('submission.csv', sep = ',', encoding = 'utf-8', index = False)
+results.to_csv('SubmissionStage2.csv', sep = ',', encoding = 'utf-8', index = False)
+
+print("Stage 2 Predictions creation complete.")
+print()
+print()

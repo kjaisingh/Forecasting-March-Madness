@@ -120,7 +120,10 @@ for i in range(0, dataset.shape[0]):
 # DATA STORAGE
 # -------------------------    
 # save entire dataset to disk
-np.savetxt("data/teamData.csv", dataset, delimiter = ",")
+np.savetxt("data/all_teamData.csv", dataset, delimiter = ",")
+print("All Team Dataset creation complete.")
+print()
+print()
 
 # locate index where 2019 data begins
 found = -1
@@ -133,3 +136,6 @@ while(found == -1):
 # store subset dataset containing only data from 2019 
 curr_year = dataset[found:, :]
 np.savetxt("data/2019_teamData.csv", curr_year, delimiter = ",")
+print("2019 Team Dataset creation complete.")
+print()
+print()

@@ -17,8 +17,8 @@ import matplotlib.pyplot as plt
 # DATA PREPROCESSING
 # -------------------------
 # load required files and allocate data 
-submissions = pd.read_csv('SampleSubmissionStage2.csv')
-data = pd.read_csv('data/2019_teamData.csv', header=None)
+submissions = pd.read_csv('SampleSubmissionStage1.csv')
+data = pd.read_csv('data/all_teamData.csv', header=None)
 matchups = submissions.iloc[:, :].values
 rawTeamData = data.iloc[:, :].values
 
@@ -79,4 +79,8 @@ for i in range(0, dataset.shape[0]):
 # -------------------------
 # DATA STORAGE
 # ------------------------- 
-np.savetxt("data/2019_dataset.csv", dataset, delimiter = ",")
+np.savetxt("data/stage1_dataset.csv", dataset, delimiter = ",")
+
+print("Stage 1 Dataset creation complete.")
+print()
+print()
