@@ -31,7 +31,7 @@ python createPredictionsDataset.py
 python createPredictions.py
 ~~~~~~~~ 
 
-6. Create a visual representations of the predictions made.
+6. Create a visual representation of the predictions made.
 ~~~~
 python createBracket.py
 ~~~~~~~~ 
@@ -79,3 +79,8 @@ The features in an input instance for this model are:
 * 13: Team 1 Personal Fouls per game - Team 2 Personal Fouls per game
 
 The output for an input instance for this model is the probability that Team 1 wins.
+
+
+### NCAA 2019 Tournament Predictions
+<img src="bracket.png"">
+
