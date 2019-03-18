@@ -5,33 +5,51 @@ Created on Mon Feb 25 19:38:04 2019
 
 @author: jaisi8631
 """
-
+# -------------------------
+# IMPORT NECESSARY MODULES
+# -------------------------
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import random
 
-teamdetails = pd.read_csv('teamdata.csv', header=None)
+
+# -------------------------
+# DATA PREPROCESSING
+# -------------------------
+# load required files and allocate data 
+teamdetails = pd.read_csv('data/teamData.csv', header=None)
 rawTeamData = teamdetails.iloc[:, :].values
 
-regseason = pd.read_csv('RegularSeasonDetailedResults.csv')
-postseason = pd.read_csv('NCAATourneyDetailedResults.csv')
+regseason = pd.read_csv('data/RegularSeasonDetailedResults.csv')
+postseason = pd.read_csv('data/NCAATourneyDetailedResults.csv')
 frames = [regseason, postseason]
 games = pd.concat(frames)
 
+
+# -----------------------------
+# DATASET SKELETON PREPARATION
+# -----------------------------
 cols = 23
 rows = games.shape[0]
 dataset = np.zeros(shape = (rows, cols))
 dataset = dataset.astype(float)
 
+
+# -------------------------
+# DATA PROCESSING
+# -------------------------
 for i in range(0, games.shape[0]):
     
+    # output to console
     print("Game #: ", i)
     
+    # get descriptive data of game
     season = games.iloc[i]['Season']
     WTeamID = games.iloc[i]['WTeamID']
     LTeamID = games.iloc[i]['LTeamID']
     
+    # identify location of game (home, away or neutral)
     x = games.iloc[i]['WLoc']
     loc = 0
     if(x == 'N'):
@@ -41,12 +59,11 @@ for i in range(0, games.shape[0]):
     elif(x == 'A'):
         loc = -1
     
-    if(season == 2019):
-        break
-    
+    # convert array to float
     values = np.array([i+1, season])
     values = values.astype(float)
           
+    # add raw team data of winning team
     found = -1
     j = 0
     while(found == -1):
@@ -56,6 +73,7 @@ for i in range(0, games.shape[0]):
                 WTeamData = rawTeamData[j, 2:-1]
         j += 1
         
+    # add raw team data of losing team
     found = -1
     j = 0
     while(found == -1):
@@ -65,15 +83,17 @@ for i in range(0, games.shape[0]):
                 LTeamData = rawTeamData[j, 2:-1]
         j += 1
     
+    # find difference between winning and losing team statistics
     winner = -1
     difference = np.subtract(WTeamData, LTeamData)
+    
+    # randomize for which will come first, and modify data accordingly
     x = random.uniform(0, 1)
     if(x > 0.5):
         winner = 1
         values = np.append(values, WTeamID)
         values = np.append(values, LTeamID)
         values = np.append(values, loc)
-        
     else:
         winner = 0
         loc = loc * -1
@@ -81,11 +101,19 @@ for i in range(0, games.shape[0]):
         values = np.append(values, LTeamID)
         values = np.append(values, WTeamID)
         values = np.append(values, loc)
-    
+        
+    # add winnning team position to data
     difference = np.append(difference, winner)
+    difference = np.round(difference, decimals = 3)
     
+    # merge descriptive data with team data
     instance = np.concatenate([values, difference])
     
+    # add game statistics to dataset
     dataset[i] = instance
 
-np.savetxt("dataset.csv", dataset, delimiter=",")
+
+# -------------------------
+# DATA STORAGE
+# ------------------------- 
+np.savetxt("data/training_dataset.csv", dataset, delimiter = ",")
