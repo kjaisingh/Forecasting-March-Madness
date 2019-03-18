@@ -1,26 +1,52 @@
 # March Madness 2019
-A Machine Learning project to predict the results of the NCAA Men's March Madness Basketball tournament.
+A Machine Learning project to predict the results of the 2019 NCAA Men's March Madness Basketball tournament. The repository acts as a solution to Google Cloud and NCAA's Kaggle Competition on March Madness (https://www.kaggle.com/c/mens-machine-learning-competition-2019).
 
-Datasets used are derived from Google Cloud and NCAA's Kaggle Competition on March Madness: https://www.kaggle.com/c/mens-machine-learning-competition-2019
+The output of this project is a list of predictions for which team will win a specified matchup. Each matchup is specified in the 'SampleSubmissionStage2.csv' file, with the IDs of the two teams listed. The project predicts the probability that the first team specified will beat the second team specified.
 
 
+### Execution Instructions
 To execute the project, complete the following steps:
 1. Create dataset that holds details for each team for every season.
 ~~~~
-python create-team-details.py
+python createTeamDetails.py
 ~~~~~~~~ 
 
-2. Create dataset that contains details about every past matchup.
+2. Create dataset that contains details about every past matchup, which is used as the training dataset.
 ~~~~
-python create-training-dataset.py
+python createTrainingDataset.py
 ~~~~~~~~ 
 
 3. Create predictive models that can be used to predict the outcomes of future fixtures.
 ~~~~
-python create-prediction-model.py
+python createPredictionModel.py
+~~~~~~~~ 
+
+4. Create dataset that holds the data used by the model for matchups that must be predicted in the submission.
+~~~~
+python createPredictionsDataset.py
+~~~~~~~~ 
+
+5. Use the most accurate model created to create predictions, and write these to the submissions file.
+~~~~
+python createPredictions.py
 ~~~~~~~~ 
 
 
+### File Details
+Other files included or created in this repository include:
+* *SampleSubmissionStage2.csv*: Holds details regarding which matchups should be predicted, and is the submission file for the Kaggle competition, as it will eventually hold the matchup predictions.
+* *scaler.save*: Holds the scaler that is used to preprocess data before it is used for predictions.
+* *predictor.pkl*: Holds the most accurate classifier created during the training phase.
+* *data/RegularSeasonDetailedResults.csv*: Holds data from NCAA Regular Season matchups since 1985.
+* *data/NCAATourneyDetailedResults.csv*: Holds data from NCAA March Madness matchups since 2003.
+* *data/TeamConferences.csv*: Holds data regarding the team ID's of each team part of the dataset for each year.
+* *data/teamData.csv*: Holds per-season data for each NCAA team since 2003.
+* *data/2019_teamData.csv*: Holds regular season data for 2019 NCAA teams.
+* *data/training_dataset.csv*: Holds data for all NCAA matchups since 2003 in a format suitable for use as training data.
+* *data/2019_dataset.csv*: Holds data for matchups identified in a format suitable for making predictions with.
+
+
+### Predictor Details
 The features in an input instance for this model are:	
 * 0: Team 1 Home or Away (1: Home, 0: Neutral, -1: Away)
 * 1: Team 1 Points per game - Team 2 Points per game
@@ -37,5 +63,4 @@ The features in an input instance for this model are:
 * 12: Team 1 Blocks per game - Team 2 Blocks per game
 * 13: Team 1 Personal Fouls per game - Team 2 Personal Fouls per game
 
-The output for an input instance for this model is:
-* Whether or not Team 1 wins (0: Team 1 Loses, 1: Team 1 Wins)
+The output for an input instance for this model is the probability that Team 1 wins.
