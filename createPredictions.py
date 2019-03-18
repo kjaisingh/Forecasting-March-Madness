@@ -52,10 +52,10 @@ spreadsheet = template.iloc[:, :].values
 
 # add the prediction to each prediction index
 for i in range(0, len(predictions)):
-    spreadsheet[i][1] = predictions[i]
+    spreadsheet[i][1] = round(predictions[i], 5)
 
 # create dataframe to match sample submissions spreadsheet
-results = pd.DataFrame({'ID': spreadsheet[:, 0], 'Pred': spreadsheet[:, 1]})
+results = pd.DataFrame(data = spreadsheet, columns=["ID", "Pred"])
 
 # save new submissions spreadsheet as csv to disk
-results.to_csv('submissions.csv', sep = ',', encoding = 'utf-8')
+results.to_csv('submission.csv', sep = ',', encoding = 'utf-8', index = False)
