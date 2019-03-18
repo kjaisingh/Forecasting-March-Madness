@@ -19,7 +19,7 @@ import pickle
 # DATA PREPROCESSING
 # -------------------------
 # load required files and allocate data 
-data = pd.read_csv('data/all_dataset.csv', header=None)
+data = pd.read_csv('data/all_dataset.csv', header = None)
 X = data.iloc[:, 4:-1].values
 y = data.iloc[:, -1].values
 
@@ -123,6 +123,9 @@ x = scores.index(max(scores))
 with open('predictor.pkl', 'wb') as fid:
     pickle.dump(classifiers[x], fid)
 
+# output feedback
+print()
+print()
 print("Predictive Models creation complete.")
 print()
 print()

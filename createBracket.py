@@ -7,6 +7,9 @@ m = build_bracket(outputPath = 'bracket.png',
 	slotsPath = 'data/NCAATourneySlots.csv',
 	year = 2019)
 
+# output feedback
+print()
+print()
 print("2019 Bracket creation complete.")
 print()
 print()
