@@ -1,11 +1,25 @@
 # March Madness 2019
-A Machine Learning project to predict the results of the 2019 NCAA Men's March Madness Basketball tournament. The repository acts as a solution to Google Cloud and NCAA's Kaggle Competition on March Madness (https://www.kaggle.com/c/mens-machine-learning-competition-2019).
+A Machine Learning project providing a solution to the Google Cloud & NCAA® Machine Learning Competition 2019 (https://www.kaggle.com/c/mens-machine-learning-competition-2019).
 
-The output of this project is a list of predictions for which team will win a specified matchup. Each matchup is specified in the 'SampleSubmissionStage2.csv' file, with the IDs of the two teams listed. The project predicts the probability that the first team specified will beat the second team specified.
+The project provides a solution to both Stage 1 and Stage 2 of the Kaggle competition, predicting the winner of historical fixtures and predicting the winners of all possible March Madness 2019 matchups respectively. 
+
+The submission files for these solutions can be found in 'SubmissionStage1.csv' and 'SolutionStage2.csv' respectively. The project predicts the probability that the first team specified will beat the second team specified for each matchup listed in the Sample Submission file for both Stage 1 and Stage 2.
+
+The project also creates a predicted bracket for the 2019 NCAA Men's March Madness basketball tournament based on the predictions made in Stage 2, and uses the tournament seedings and slots. This bracket can be found in the file 'output.png'.
+
+
+### Required Dependencies
+* Numpy
+* Pandas
+* Matplotlib
+* Pickle
+* Random
+* Ski Kit Learn
+* Keras
+* Bracketeer
 
 
 ### Execution Instructions
-To execute the project, complete the following steps:
 1. Create dataset that holds details for each team for every season.
 ~~~~
 python createTeamDetails.py
@@ -21,29 +35,44 @@ python createTrainingDataset.py
 python createPredictionModel.py
 ~~~~~~~~ 
 
-4. Create dataset that holds the data used by the model for matchups that must be predicted in the submission.
+4. Create dataset that holds the data used by the model for matchups that must be predicted in the Stage 1 submission.
 ~~~~
-python createPredictionsDataset.py
+python createStage1PredictionsDataset.py
 ~~~~~~~~ 
 
-5. Use the most accurate model created to create predictions, and write these to the submissions file.
+5. Use the most accurate model created to create Stage 1 predictions, and write these to a submission file.
 ~~~~
-python createPredictions.py
+python createStage1Predictions.py
 ~~~~~~~~ 
 
-6. Create a visual representation of the predictions made.
+6. Submit the Stage 1 predictions to the Kaggle competition (requires setting up of the Kaggle library and Kaggle API).
+~~~~
+kaggle competitions submit -c mens-machine-learning-competition-2019 -f SubmissionStage1.csv -m "My Stage 1 submission"
+~~~~~~~~ 
+
+7. Create dataset that holds the data used by the model for matchups that must be predicted in the Stage 2 submission.
+~~~~
+python createStage2PredictionsDataset.py
+~~~~~~~~ 
+
+8. Use the most accurate model created to create Stage 2 predictions, and write these to a submission file.
+~~~~
+python createStage2Predictions.py
+~~~~~~~~ 
+
+9. Create a visual representation of the predictions made for the 2019 tournament.
 ~~~~
 python createBracket.py
 ~~~~~~~~ 
 
-7. Submit the predictions to the Kaggle competition (requires setting up of the Kaggle library and Kaggle API).
+10. Submit the Stage 2 predictions to the Kaggle competition (requires setting up of the Kaggle library and Kaggle API).
 ~~~~
-kaggle competitions submit -c mens-machine-learning-competition-2019 -f submission.csv -m "My submission."
+kaggle competitions submit -c mens-machine-learning-competition-2019 -f SubmissionStage2.csv -m "My Stage 2 submission"
 ~~~~~~~~ 
 
 
 ### File Details
-Other files included or created in this repository include:
+Other files included or created in this repository include (in order of creation/access):
 * *data/RegularSeasonDetailedResults.csv*: Holds data from NCAA Regular Season matchups since 1985.
 * *data/NCAATourneyDetailedResults.csv*: Holds data from NCAA March Madness matchups since 2003.
 * *data/TeamConferences.csv*: Holds data regarding the team ID's of each team part of the dataset for each year.
@@ -86,4 +115,3 @@ The output for an input instance for this model is the probability that Team 1 w
 
 ### NCAA 2019 Tournament Predictions
 <img src = "bracket.png"/>
-
