@@ -82,5 +82,5 @@ The output for an input instance for this model is the probability that Team 1 w
 
 
 ### NCAA 2019 Tournament Predictions
-<img src="bracket.png"">
+<img src = "bracket.png"/>
 
