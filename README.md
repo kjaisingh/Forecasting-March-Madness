@@ -31,7 +31,12 @@ python createPredictionsDataset.py
 python createPredictions.py
 ~~~~~~~~ 
 
-6. Submit the predictions to the Kaggle competition.
+6. Create a visual representations of the predictions made.
+~~~~
+python createBracket.py
+~~~~~~~~ 
+
+7. Submit the predictions to the Kaggle competition (requires setting up of the Kaggle library and Kaggle API).
 ~~~~
 kaggle competitions submit -c mens-machine-learning-competition-2019 -f submission.csv -m "My submission."
 ~~~~~~~~ 
@@ -41,6 +46,7 @@ kaggle competitions submit -c mens-machine-learning-competition-2019 -f submissi
 Other files included or created in this repository include:
 * *SampleSubmissionStage2.csv*: Holds details regarding which matchups should be predicted.
 * *submission.csv*: Holds the submissions for the Kaggle competition, as stores the matchup predictions.
+* *bracket.png*: Holds a visual representation of the predictions made in the form of a bracket for the 2019 tournament.
 * *scaler.save*: Holds the scaler that is used to preprocess data before it is used for predictions.
 * *predictor.pkl*: Holds the most accurate classifier created during the training phase.
 * *data/RegularSeasonDetailedResults.csv*: Holds data from NCAA Regular Season matchups since 1985.
