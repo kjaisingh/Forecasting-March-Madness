@@ -39,7 +39,8 @@ kaggle competitions submit -c mens-machine-learning-competition-2019 -f submissi
 
 ### File Details
 Other files included or created in this repository include:
-* *SampleSubmissionStage2.csv*: Holds details regarding which matchups should be predicted, and is the submission file for the Kaggle competition, as it will eventually hold the matchup predictions.
+* *SampleSubmissionStage2.csv*: Holds details regarding which matchups should be predicted.
+* *submission.csv*: Holds the submissions for the Kaggle competition, as stores the matchup predictions.
 * *scaler.save*: Holds the scaler that is used to preprocess data before it is used for predictions.
 * *predictor.pkl*: Holds the most accurate classifier created during the training phase.
 * *data/RegularSeasonDetailedResults.csv*: Holds data from NCAA Regular Season matchups since 1985.
