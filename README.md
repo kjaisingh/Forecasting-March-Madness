@@ -50,6 +50,9 @@ Other files included or created in this repository include:
 * *data/2019_teamData.csv*: Holds regular season data for 2019 NCAA teams.
 * *data/training_dataset.csv*: Holds data for all NCAA matchups since 2003 in a format suitable for use as training data.
 * *data/2019_dataset.csv*: Holds data for matchups identified in a format suitable for making predictions with.
+* *data/Teams.csv*: Holds data regarding the team name of each team based on their team ID. 
+* *data/NCAATourneySeeds.csv*: Holds data regarding the NCAA seed of each team.
+* *data/NCAATourneySlots.csv*: Holds data regarding the NCAA slot of each team.
 
 
 ### Predictor Details
