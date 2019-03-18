@@ -79,4 +79,4 @@ for i in range(0, dataset.shape[0]):
 # -------------------------
 # DATA STORAGE
 # ------------------------- 
-np.savetxt("data/2019_dataset.csv", dataset, delimiter=",")
+np.savetxt("data/2019_dataset.csv", dataset, delimiter = ",")
