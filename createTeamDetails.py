@@ -121,6 +121,10 @@ for i in range(0, dataset.shape[0]):
 # -------------------------    
 # save entire dataset to disk
 np.savetxt("data/all_teamData.csv", dataset, delimiter = ",")
+
+# output feedback
+print()
+print()
 print("All Team Dataset creation complete.")
 print()
 print()
