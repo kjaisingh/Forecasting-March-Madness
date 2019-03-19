@@ -45,7 +45,7 @@ pickle.dump(sc, open(scalerfile, 'wb'))
 print("Training Logistic Regression model...")
 
 from sklearn.linear_model import LogisticRegression
-classifier_lr = LogisticRegression()
+classifier_lr = LogisticRegression(solver = 'lbfgs')
 classifier_lr.fit(X_train, y_train)
 
 y_pred = classifier_lr.predict(X_test)
@@ -55,7 +55,7 @@ score_lr = accuracy_score(y_test, y_pred)
 # 2 - random forest
 print("Training Random Forest model...")
 from sklearn.ensemble import RandomForestClassifier
-classifier_rf = RandomForestClassifier(n_estimators = 50, criterion = 'entropy')
+classifier_rf = RandomForestClassifier(n_estimators = 75, criterion = 'entropy')
 classifier_rf.fit(X_train, y_train)
 
 y_pred = classifier_rf.predict(X_test)
@@ -86,25 +86,28 @@ classifier_nn.add(Dense(50, input_dim = X_train.shape[1],
 classifier_nn.add(Dropout(0.2))
 classifier_nn.add(Dense(100, activation = 'relu'))
 classifier_nn.add(Dropout(0.5))
-classifier_nn.add(Dense(75, activation = 'relu'))
+classifier_nn.add(Dense(100, activation = 'relu'))
 classifier_nn.add(Dropout(0.5))
 classifier_nn.add(Dense(25, activation = 'relu'))
 classifier_nn.add(Dropout(0.2))
-classifier_nn.add(Dense(1, kernel_initializer='normal'))
+classifier_nn.add(Dense(1, kernel_initializer='normal', activation = 'relu'))
 
-adam = optimizers.Adam(lr = 0.01)
-classifier_nn.compile(loss = 'mean_squared_error', optimizer = adam)
-classifier_nn.fit(X_train, y_train, batch_size = 10, nb_epoch = 5)
+adam = optimizers.Adam(lr = 0.005)
+classifier_nn.compile(loss = 'binary_crossentropy', optimizer = adam)
+classifier_nn.fit(X_train, y_train, batch_size = 20, epochs = 5)
 
 y_pred = classifier_nn.predict(X_test)
 y_pred = np.where(y_pred > 0.5, 1, 0)
 from sklearn.metrics import accuracy_score
 score_nn = accuracy_score(y_test, y_pred)
 
+
 # -------------------------
 # MODEL EVALUATION
 # -------------------------
-# print the accuracy score of each model
+# print the accuracy score of each 
+print()
+print()
 print("Logisitc Regression Accuracy: " + str(round(score_lr, 3)))
 print("Random Forest Accuracy: " + str(round(score_rf, 3)))
 print("Naive Bayes Accuracy: " + str(round(score_nb, 3)))

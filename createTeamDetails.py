@@ -142,8 +142,6 @@ curr_year = dataset[found:, :]
 np.savetxt("data/2019_teamData.csv", curr_year, delimiter = ",")
 
 # output feedback
-print()
-print()
 print("2019 Team Dataset creation complete.")
 print()
 print()
