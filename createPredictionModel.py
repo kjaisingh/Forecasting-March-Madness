@@ -90,7 +90,7 @@ classifier_nn.add(Dense(100, activation = 'relu'))
 classifier_nn.add(Dropout(0.5))
 classifier_nn.add(Dense(25, activation = 'relu'))
 classifier_nn.add(Dropout(0.2))
-classifier_nn.add(Dense(1, kernel_initializer='normal', activation = 'relu'))
+classifier_nn.add(Dense(1, kernel_initializer='normal', activation = 'sigmoid'))
 
 adam = optimizers.Adam(lr = 0.005)
 classifier_nn.compile(loss = 'binary_crossentropy', optimizer = adam)
