@@ -115,3 +115,7 @@ The output for an input instance for this model is the probability that Team 1 w
 
 ### NCAA 2019 Tournament Predictions
 <img src = "bracket.png"/>
+
+
+### Reflection on the competition
+I will post this once the NCAA Competition completes on April 8th 2019.
