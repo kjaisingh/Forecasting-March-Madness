@@ -1,6 +1,6 @@
 # March Madness Tournament Outcome Prediction
 
-### An AI system to guide your March Madness bracket.
+### A Machine Learning system to guide your March Madness bracket.
 
 A Machine Learning project providing a solution to the Google Cloud & NCAA® Machine Learning Competition 2019 (https://www.kaggle.com/c/mens-machine-learning-competition-2019).
 
@@ -98,6 +98,7 @@ Other files included or created in this repository include (in order of creation
 
 
 **Predictor Details:**
+
 The features in an input instance for this model are:	
 * 0: Team 1 Home or Away (1: Home, 0: Neutral, -1: Away)
 * 1: Team 1 Points per game - Team 2 Points per game
