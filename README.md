@@ -97,7 +97,7 @@ Other files included or created in this repository include (in order of creation
 * *bracket.png*: Holds a visual representation of the predictions made in the form of a bracket for the 2019 tournament.
 
 
-### Predictor Details
+**Predictor Details:**
 The features in an input instance for this model are:	
 * 0: Team 1 Home or Away (1: Home, 0: Neutral, -1: Away)
 * 1: Team 1 Points per game - Team 2 Points per game
