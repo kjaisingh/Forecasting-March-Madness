@@ -1,4 +1,7 @@
-# March Madness 2019
+# March Madness Tournament Outcome Prediction
+
+### An AI system to guide your March Madness bracket.
+
 A Machine Learning project providing a solution to the Google Cloud & NCAA® Machine Learning Competition 2019 (https://www.kaggle.com/c/mens-machine-learning-competition-2019).
 
 The project provides a solution to both Stage 1 and Stage 2 of the Kaggle competition, predicting the winner of historical fixtures and predicting the winners of all possible March Madness 2019 matchups respectively. 
@@ -8,7 +11,7 @@ The submission files for these solutions can be found in 'SubmissionStage1.csv' 
 The project also creates a predicted bracket for the 2019 NCAA Men's March Madness basketball tournament based on the predictions made in Stage 2, and uses the tournament seedings and slots. This bracket can be found in the file 'output.png'.
 
 
-### Required Dependencies
+**Required Dependencies:**
 * Numpy
 * Pandas
 * Matplotlib
@@ -19,7 +22,7 @@ The project also creates a predicted bracket for the 2019 NCAA Men's March Madne
 * Bracketeer
 
 
-### Execution Instructions
+**Execution Instructions:**
 1. Create dataset that holds details for each team for every season.
 ~~~~
 python createTeamDetails.py
@@ -71,7 +74,8 @@ kaggle competitions submit -c mens-machine-learning-competition-2019 -f Submissi
 ~~~~~~~~ 
 
 
-### File Details
+**File Details:**
+
 Other files included or created in this repository include (in order of creation/access):
 * *data/RegularSeasonDetailedResults.csv*: Holds data from NCAA Regular Season matchups since 1985.
 * *data/NCAATourneyDetailedResults.csv*: Holds data from NCAA March Madness matchups since 2003.
@@ -113,11 +117,12 @@ The features in an input instance for this model are:
 The output for an input instance for this model is the probability that Team 1 wins.
 
 
-### NCAA 2019 Tournament Predictions
+**NCAA 2019 Tournament Predictions:**
 <img src = "bracket.png"/>
 
 
-### Reflection on the Competition, the Model and the Results
+**Reflection on the Competition, the Model and the Results:**
+
 With March Madness 2019 now over, I thought it would be a great time to reflect on my first time entering Google's competition, which saw entries from some of the leading universities and academic teams in the world. So, let's get to it.
 * In terms of its simplicity to implement, the model turned out to be decent. It predicted the right winner of each matchup that occurred in this tournament with an accuracy of about 75%, which isn't too bad. Better still, it was able to predict the correct winner of the entire tournament - the Virginia Cavaliers. This indicates that it did, to an extend, understand what was important in winning - in the case of Virginia, it seemed to be great defense and solid three-point shooting (which is probably why the model didn't even predict pre-tournament favourites Duke to make the finals).
 * The main flaw that I saw in the model was the fact that it did not take seedings into account. While the seeding would be the basis for most people's predictions in fixtures, as there tends to be a relatively strong correlation between the higher seed and the winning team, my model did not consider the seeding of the two teams in a matchup. This resulted in the model often making extremely risky predictions that were purely stats-based - I believe that the imposition of the seedings of the two teams will reduce the number of these risky predictions. The reason why it was difficult to incorporate seedings into the model was that the large majority of training data was from regular NCAA matches rather than the March Madness Championships. The large majority of teams playing in these NCAA matches, however, do not ever get assigned a seed - this is because they do not qualify for the Championships  itself. To get around this issue, I plan to utilize seedings in future predictive models with one slight tweak - I would assign a seeding of 16, which is the lowest possible seed in the Championships, to all teams that do not end up ever getting a seed. This indicates that they would be the weakest in the pool of teams if they qualified the Championships, which is valid given that they did not even make it.
