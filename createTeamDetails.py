@@ -71,7 +71,7 @@ rawData = rawData.astype(float)
 for i in range(0, rawData.shape[0]):
     
     # output to console
-    print("Game #: ", i)
+    print("Processing Game #: ", i)
     
     # get descriptive data of game
     thisWTeamID = rawData[i][WTeamIDIndex]

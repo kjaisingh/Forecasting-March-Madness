@@ -39,7 +39,7 @@ pickle.dump(sc, open(scalerfile, 'wb'))
 
 
 # -------------------------
-# MODEL CREATION
+# BASELINE MODELS CREATION
 # -------------------------
 # 1 - logistic regression
 print("Training Logistic Regression model...")
@@ -72,7 +72,10 @@ y_pred = classifier_nb.predict(X_test)
 from sklearn.metrics import accuracy_score
 score_nb = accuracy_score(y_test, y_pred)
 
-# 4 - neural network
+
+# -------------------------
+# NEURAL NETWORK CREATION
+# -------------------------
 print("Training Neural Network model...")
 from keras.models import Sequential
 from keras.layers import Dense
@@ -90,7 +93,7 @@ classifier_nn.add(Dense(100, activation = 'relu'))
 classifier_nn.add(Dropout(0.5))
 classifier_nn.add(Dense(25, activation = 'relu'))
 classifier_nn.add(Dropout(0.2))
-classifier_nn.add(Dense(1, kernel_initializer='normal', activation = 'sigmoid'))
+classifier_nn.add(Dense(1, kernel_initializer = 'normal', activation = 'sigmoid'))
 
 adam = optimizers.Adam(lr = 0.005)
 classifier_nn.compile(loss = 'binary_crossentropy', optimizer = adam)
@@ -117,14 +120,9 @@ print("Neural Network Accuracy: " + str(round(score_nn, 3)))
 # -------------------------
 # MODEL STORAGE
 # -------------------------
-# identify the model with the highest accuracy score
-classifiers = [classifier_lr, classifier_rf, classifier_nb, classifier_nn]
-scores = [score_lr, score_rf, score_nb, score_nn]
-x = scores.index(max(scores))
-
-# store the model with the highest accuracy score to disk
+# store the neural network model with the highest accuracy score
 with open('predictor.pkl', 'wb') as fid:
-    pickle.dump(classifiers[x], fid)
+    pickle.dump(classifier_nn, fid)
 
 # output feedback
 print()

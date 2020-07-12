@@ -40,7 +40,7 @@ X = sc.transform(X)
 # -------------------------
 # predict probabilities of team 1 winning each matchup
 predictions = classifier.predict_proba(X)
-predictions = predictions[:, 1]
+predictions = predictions.flatten()
 
 
 # -------------------------

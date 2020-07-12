@@ -42,7 +42,7 @@ dataset = dataset.astype(float)
 for i in range(0, games.shape[0]):
     
     # output to console
-    print("Game #: ", i)
+    print("Processing Game #: ", i)
     
     # get descriptive data of game
     season = games.iloc[i]['Season']
